@@ -22,15 +22,15 @@ const CountryWeather = ({ country }) => {
     if (weather.length === 0) {
         return null
     }
-    /*return (
+    return (
         <div>
-            <h1>Weather in {country}</h1>
+            <h1>Weather in {country.name.common}</h1>
             <p>temperature {weather.main.temp} °C</p>
-            <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+            <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                 alt={weather.weather[0].description} />
             <p>wind {weather.wind.speed} m/s</p>
         </div>
-    )*/
+    )
 }
 
 const Country = ({ country }) => {

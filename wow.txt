@@ -1,0 +1,131 @@
+REACT main library
+VITE helper library
+JSON Server for tests
+AXIOS for communication between browser and server
+"npm init" creates package.json and node modules
+EXPRESS for http requests
+NODEMON to hot reload backend server
+POSTMAN for http request tests
+REST Client plug-in for VS Code for easier http request tests
+MORGAN middleware for console logging and messaging
+CORS for connectivity of resources
+flyctl to use fly commands and deploy to the internet
+
+
+
+
+
+
+
+
+"npm create vite@latest appName --template react" command in console to create a new basic react application with vite
+"npm install" to install it
+"npm run dev" to run it
+it resides in http://localhost:5173/
+
+modify main.jsx to look like this:{
+
+	import ReactDOM from 'react-dom/client'
+
+	import App from './App'
+
+	ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+
+}
+make sure it exports App component
+
+
+
+
+"import {useState, useEffect} from "react";
+useState hooks to create state or pieces of state to a component to re-render it every time it is modified
+useEffect hooks usually used for handling of external systems like requests to server, and others
+
+props for components need to be handled carefully
+Remember function that returns a function
+Don't make components within components
+
+
+
+
+
+
+JSON Server
+"npm install -g json-server" to instal JSON Server globally in computer
+run "json-server --port 3001 --watch db.json" to have JSON Server watch a specific file db.json
+can also run "npx json-server --port 3001 --watch db.json" if you don't want to make global installation
+
+a better way to run JSON Server is to "npm install json-server --save-dev" so it's only for development and only that project
+and add it to the package.json scripts like: "server": "json-server -p3001 --watch db.json"
+run JSON Server with "npm run server"
+
+
+
+
+
+
+
+AXIOS
+"npm install axios" to install library which simplifies communication between browser and server
+import axios from "axios";
+use correct methods for specific requests
+make sure to use .then when request is successful and .catch for error handling
+make server requests in separate services file(s)
+
+
+
+styles can be put into css files or inside components code as like "inline"
+
+
+
+
+Se obtuvo llave de api para openweathermap.org
+
+esto es usado cuando se quiere guardar alguna llave para api externa, esta es de ejemplo
+export VITE_SOME_KEY=54l41n3n4v41m34rv0 && npm run dev // For Linux/macOS Bash
+($env:VITE_SOME_KEY="54l41n3n4v41m34rv0") -and (npm run dev) // For Windows PowerShell
+set "VITE_SOME_KEY=54l41n3n4v41m34rv0" && npm run dev // For Windows cmd.exe
+
+const api_key = import.meta.env.VITE_SOME_KEY para obtenerla
+
+
+
+
+
+
+
+
+"npm init" to create new minimal package.json file and start simple node application
+"start": "node index.js" in package.json script to start app with npm command
+
+
+
+
+"npm install express"
+express is used to ease server side web development
+const express = require("express")
+
+
+
+
+"npm install --save-dev nodemon"
+nodemon lets you hot reload simple node applications
+"dev": "nodemon index.js" in package.json to run with "npm run dev" in console
+
+
+
+
+Use POSTMAN to test http request on the backend more easily
+
+Can also use REST client plugin in VS Code, this could be better since the requests are stored inside the project and you have more control
+Create a requests folder at the root of the project and create .rest files with the wanted requests, can separate requests with ###
+
+
+
+"npm install morgan" to install Morgan middleware which lets you log better messages in the console
+
+
+"npm install cors" to install cors utility that let's you link to external domains and resources
+
+
+pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex" ||||||||| to work with fly.io and use fly commands

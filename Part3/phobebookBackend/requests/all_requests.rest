@@ -1,0 +1,20 @@
+### Get app info
+GET http://localhost:3001/api/info
+
+### Get all persons
+GET http://localhost:3001/api/persons
+
+### Get specific person
+GET http://localhost:3001/api/persons/1
+
+### Create new person
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "New test name",
+    "number": "New test number"
+}
+
+### Delete specific person
+DELETE http://localhost:3001/api/persons/538337

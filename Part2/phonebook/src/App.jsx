@@ -46,7 +46,7 @@ const App = () => {
     const [newNumber, setNewNumber] = useState("")
     const [newFilter, setNewFilter] = useState("")
     const [notifMessage, setNotifMessage] = useState(null)
-    const [notifType, setNotifType]=useState("success")
+    const [notifType, setNotifType] = useState("success")
 
     useEffect(() => {
         numberService
@@ -111,6 +111,12 @@ const App = () => {
                     setNewFilter("")
                 })
                 .catch(error => {
+                    console.log(error.response.data.error);
+                    setNotifType("error")
+                    setNotifMessage(error.response.data.error)
+                    setTimeout(() => {
+                        setNotifMessage(null)
+                    }, 3000)
                 })
         }
     }

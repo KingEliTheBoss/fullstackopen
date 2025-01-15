@@ -10,9 +10,11 @@ REST Client plug-in for VS Code for easier http request tests
 MORGAN middleware for console logging and messaging
 CORS for connectivity of resources
 flyctl to use fly commands and deploy to the internet
-
-
-
+MONGODB ATLAS to save data to it
+MONGOOSE library to connect to MONGODB
+DOTENV library to avoid issues in authentication when connecting to database
+ESLINT para detectar errores de estilo de una forma mucho mejor
+stylistiv eslint plugin - code style related rules
 
 
 
@@ -129,3 +131,34 @@ Create a requests folder at the root of the project and create .rest files with 
 
 
 pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex" ||||||||| to work with fly.io and use fly commands
+"fly auth login" to sign in to fly.io account
+"fly launch --no-deploy" to create app in fly.io
+write "[env] PORT= "3000" and internal_port = 3000" in fly.toml to make it work
+"fly deploy" to put app on the internet
+"fly apps open" to open app address
+"fly logs" to check for errors
+"fly scale show" to see how many machines are for the app
+"fly scale count 1" to change amount of machines
+"flyctl ping -o personal" to check app connection health
+
+
+
+
+Crear cuenta MONGODB Atlas
+Crear cluster, dar configuración de acceso
+Conectar cluster a aplicación
+Utilizar "npm install mongodb" para conectar código
+Mejor utilizar "npm install mongoose" que tiene una mejor API
+
+
+
+
+npm install dotenv
+
+
+
+
+npm install eslint @eslint/js --save-dev
+npx eslint --init
+
+npm install --save-dev @stylistic/eslint-plugin-js

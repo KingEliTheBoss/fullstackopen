@@ -5,7 +5,7 @@ GET http://localhost:3001/api/info
 GET http://localhost:3001/api/persons
 
 ### Get specific person
-GET http://localhost:3001/api/persons/1
+GET http://localhost:3001/api/persons/678580840611241571b494b4
 
 ### Create new person
 POST http://localhost:3001/api/persons
@@ -16,5 +16,14 @@ Content-Type: application/json
     "number": "New test number"
 }
 
+### Modify existing person number
+PUT http://localhost:3001/api/persons/678580840611241571b494b4
+Content-Type: application/json
+
+{
+    "name": "updated Name",
+    "number": "updated number"
+}
+
 ### Delete specific person
-DELETE http://localhost:3001/api/persons/538337
+DELETE http://localhost:3001/api/persons/678557b4e4d3ea20cf602f38

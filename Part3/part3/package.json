@@ -6,15 +6,26 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd ../../Part2/part2 && npm run build && @powershell Copy-Item dist -Recurse ../../Part3/part3",
+    "deploy": "fly deploy",
+    "deploy:full": "npm run build:ui && npm run deploy",
+    "logs:prod": "fly logs",
+    "lint": "eslint ."
   },
   "author": "Eli Sal",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.19.2",
+    "mongoose": "^8.8.4"
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@stylistic/eslint-plugin-js": "^2.13.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
     "nodemon": "^3.1.0"
   }
 }

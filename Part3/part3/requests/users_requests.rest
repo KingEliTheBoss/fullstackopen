@@ -1,0 +1,18 @@
+### Create user
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "KingEliTheBoss",
+    "name": "Eli Sal",
+    "password": "añvbpar66adsf6291wr"
+}
+
+### Create another user
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "mluukkai",
+    "password": "salainen"
+}

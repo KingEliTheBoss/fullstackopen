@@ -12,9 +12,17 @@ CORS for connectivity of resources
 flyctl to use fly commands and deploy to the internet
 MONGODB ATLAS to save data to it
 MONGOOSE library to connect to MONGODB
-DOTENV library to avoid issues in authentication when connecting to database
+DOTENV library to create environment variables so it isn't used harcoded
 ESLINT para detectar errores de estilo de una forma mucho mejor
 stylistiv eslint plugin - code style related rules
+CROSS-ENV library that lets different environments for production, development, tests
+SUPERTEST library to help write tests for testing API
+EXPRESS-ASYNC-ERROS library to not need to use try/catch when catching errors with async/await
+BCRYPT library to generate password hashes
+JSONWEBTOKEN libraty to generate web tokens for authentication
+
+
+
 
 
 
@@ -38,7 +46,6 @@ make sure it exports App component
 
 
 
-
 "import {useState, useEffect} from "react";
 useState hooks to create state or pieces of state to a component to re-render it every time it is modified
 useEffect hooks usually used for handling of external systems like requests to server, and others
@@ -46,9 +53,6 @@ useEffect hooks usually used for handling of external systems like requests to s
 props for components need to be handled carefully
 Remember function that returns a function
 Don't make components within components
-
-
-
 
 
 
@@ -60,10 +64,6 @@ can also run "npx json-server --port 3001 --watch db.json" if you don't want to 
 a better way to run JSON Server is to "npm install json-server --save-dev" so it's only for development and only that project
 and add it to the package.json scripts like: "server": "json-server -p3001 --watch db.json"
 run JSON Server with "npm run server"
-
-
-
-
 
 
 
@@ -80,7 +80,6 @@ styles can be put into css files or inside components code as like "inline"
 
 
 
-
 Se obtuvo llave de api para openweathermap.org
 
 esto es usado cuando se quiere guardar alguna llave para api externa, esta es de ejemplo
@@ -92,14 +91,8 @@ const api_key = import.meta.env.VITE_SOME_KEY para obtenerla
 
 
 
-
-
-
-
-
 "npm init" to create new minimal package.json file and start simple node application
 "start": "node index.js" in package.json script to start app with npm command
-
 
 
 
@@ -109,11 +102,9 @@ const express = require("express")
 
 
 
-
 "npm install --save-dev nodemon"
 nodemon lets you hot reload simple node applications
 "dev": "nodemon index.js" in package.json to run with "npm run dev" in console
-
 
 
 
@@ -127,7 +118,9 @@ Create a requests folder at the root of the project and create .rest files with 
 "npm install morgan" to install Morgan middleware which lets you log better messages in the console
 
 
+
 "npm install cors" to install cors utility that let's you link to external domains and resources
+
 
 
 pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex" ||||||||| to work with fly.io and use fly commands
@@ -143,7 +136,6 @@ write "[env] PORT= "3000" and internal_port = 3000" in fly.toml to make it work
 
 
 
-
 Crear cuenta MONGODB Atlas
 Crear cluster, dar configuración de acceso
 Conectar cluster a aplicación
@@ -152,9 +144,7 @@ Mejor utilizar "npm install mongoose" que tiene una mejor API
 
 
 
-
 npm install dotenv
-
 
 
 
@@ -162,3 +152,24 @@ npm install eslint @eslint/js --save-dev
 npx eslint --init
 
 npm install --save-dev @stylistic/eslint-plugin-js
+
+
+
+npm install --save-dev cross-env | for normal use
+npm install cross-env | for when it's deployed to the internet
+
+
+
+npm install --save-dev supertest
+
+
+
+npm install express-async-errors
+
+
+
+npm install bcrypt
+
+
+
+npm install jsonwebtoken

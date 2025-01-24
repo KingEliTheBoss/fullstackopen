@@ -6,10 +6,16 @@ POST http://localhost:3003/api/users
 Content-Type: application/json
 
 {
-    "username": "KingEliTheBoss",
-    "password": "a1s2d3q4w5e6z7x8c9+*?!",
-    "name": "Eli Sal"
+    "username": "mluukkai",
+    "password": "salainen",
+    "name": "Matti Luukkainen"
 }
+
+#{
+#    "username": "KingEliTheBoss",
+#    "password": "a1s2d3q4w5e6z7x8c9+*?!",
+#    "name": "Eli Sal"
+#}
 
 #{
 #    "username": "ml",

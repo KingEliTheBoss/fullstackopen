@@ -17,9 +17,21 @@ ESLINT para detectar errores de estilo de una forma mucho mejor
 stylistiv eslint plugin - code style related rules
 CROSS-ENV library that lets different environments for production, development, tests
 SUPERTEST library to help write tests for testing API
-EXPRESS-ASYNC-ERROS library to not need to use try/catch when catching errors with async/await
+EXPRESS-ASYNC-ERRORS library to not need to use try/catch when catching errors with async/await
 BCRYPT library to generate password hashes
 JSONWEBTOKEN libraty to generate web tokens for authentication
+PROP-TYPES library that allows react props to have types and/or requirements
+VITEST library to make tests of websites' front end
+JSDOM library to simulate a web browser
+REACT-TESTING-LIBRARY to help render components for testing purposes
+JEST-DOM to extend the expressive power of tests
+ESLINT-PLUGIN-VITEST-GLOBALS to make the vitest globals variables not be an error by eslint
+USER-EVENT library to help simulate user input easier for tests
+COVERAGE-V8 finds the coverage of tests and makes a useful report
+PLAYWRIGHT to make End to End tests between front-end and back-end
+
+
+
 
 
 
@@ -148,6 +160,10 @@ npm install dotenv
 
 
 
+npm run test -- filepath
+
+
+
 npm install eslint @eslint/js --save-dev
 npx eslint --init
 
@@ -173,3 +189,36 @@ npm install bcrypt
 
 
 npm install jsonwebtoken
+
+
+
+npm install prop-types
+
+
+
+npm install --save-dev vitest
+npm install --save-dev jsdom
+
+npm install --save-dev @testing-library/react
+npm install --save-dev @testing-library/jest-dom
+
+npm install --save-dev eslint-plugin-vitest-globals
+
+npm install --save-dev @testing-library/user-event
+
+npm install --save-dev @vitest/coverage-v8
+
+
+
+
+
+
+
+
+//These are for an intermediate project between front-end and back-end projects
+npm init
+npm init playwright@latest
+
+npx playwright test specific_test_file.spec.js:line_number_of_specific_test --debug
+example: npx playwright test note_app.spec.js:58 --debug
+--debug flag to go step by step

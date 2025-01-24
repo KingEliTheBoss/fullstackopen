@@ -7,6 +7,7 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test node --test",
+    "start:test": "cross-env NODE_ENV=test node index.js",
     "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd ../../Part2/part2 && npm run build && @powershell Copy-Item dist -Recurse ../../Part3/part3",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",

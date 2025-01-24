@@ -1,0 +1,17 @@
+{
+  "name": "bloglist-e2e",
+  "version": "1.0.0",
+  "description": "End to End tests for bloglist project",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "author": "Eli Sal",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.10.10"
+  }
+}

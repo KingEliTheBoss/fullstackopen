@@ -4,7 +4,7 @@ GET http://localhost:3003/api/blogs
 ### Create a new blog
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IktpbmdFbGlUaGVCb3NzIiwiaWQiOiI2NzhkMzI3ZTBkZjEyYWIxZjdkNTBjNGYiLCJpYXQiOjE3MzczMjgyMTEsImV4cCI6MTczNzMzMTgxMX0.ZBqAasRJqgq8m2wte6WWCwEydDBZC-H-0QZE7326pr0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NzkzYjBkYWE1M2YwMjhlMTZlM2JlMTEiLCJpYXQiOjE3Mzc3MzIzMzYsImV4cCI6MTczNzczNTkzNn0.-39XlOObsqNlBis65c6wgqVzieZmV8VAkgqB-uC299E
 
 {
     "title": "Test title",

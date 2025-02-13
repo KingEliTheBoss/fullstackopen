@@ -29,6 +29,15 @@ ESLINT-PLUGIN-VITEST-GLOBALS to make the vitest globals variables not be an erro
 USER-EVENT library to help simulate user input easier for tests
 COVERAGE-V8 finds the coverage of tests and makes a useful report
 PLAYWRIGHT to make End to End tests between front-end and back-end
+REDUX library for better state management
+@reduxjs/toolkit also for better state management, better than redux because redux is deprecated
+DEEP-FREEZE library that helps define immutable functions, good for reducers
+REACT-REDUX library that implements hooks to be able to use redux store in multiple components
+@tanstack/react-query to help store and manage data retrieved from the server
+
+
+
+
 
 
 
@@ -222,3 +231,33 @@ npm init playwright@latest
 npx playwright test specific_test_file.spec.js:line_number_of_specific_test --debug
 example: npx playwright test note_app.spec.js:58 --debug
 --debug flag to go step by step
+
+
+
+
+
+
+
+
+npm install redux
+import { createStore } from "redux";
+const store = createStore(myReducer);
+
+npm install @reduxjs/toolkit
+import { configureStore } from "@reduxjs/toolkit";
+const store = configureStore({reducer: myReducer});
+
+
+
+
+npm install --save-dev deep-freeze
+
+
+
+
+npm install react-redux
+
+
+
+
+npm install @tanstack/react-query

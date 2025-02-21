@@ -1,0 +1,10 @@
+/node_modules
+/coverage
+
+.prettierignore
+.prettierrc
+
+.eslintignore
+.eslintrc.cjs
+
+index.html

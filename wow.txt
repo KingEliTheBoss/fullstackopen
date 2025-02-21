@@ -33,8 +33,20 @@ REDUX library for better state management
 @reduxjs/toolkit also for better state management, better than redux because redux is deprecated
 DEEP-FREEZE library that helps define immutable functions, good for reducers
 REACT-REDUX library that implements hooks to be able to use redux store in multiple components
-@tanstack/react-query to help store and manage data retrieved from the server
+@tanstack/react-query to help store and manage data retrieved from the server, not needed if already using redux toolkit since it comes with its own query stuff, try not to mix, reduxtoolkit is better imo
+REACT-ROUTER-DOM library that lets you navigate different views on a web app easily
+REACT-BOOTSTRAP package that allows react friendly components with styles
+MATERIALUI package that also allows react friendly components with styles
+STYLED-COMPONENTS that allows you to create new react components with styles
 
+WEBPACK library that allows you to bundle your project into just necessary files
+BABEL loader that lets bundlers bundle files that are not plain javascript
+CORE-JS REGENERATOR-RUNTIME libraries that help to be able to bundle async/await code
+@babel/preset-env @babel/preset-react Presets to be able to transpile code to plain javascript, env to transpile to ES5 and react to be able to use react components
+style-loader css-loader are loaders to be able to transpile css files and code
+WEBPACK-DEV-SERVER to be able to run a webpack project without needing to bundle it every time
+
+PRETTIER library that formats code automatically
 
 
 
@@ -261,3 +273,30 @@ npm install react-redux
 
 
 npm install @tanstack/react-query
+
+
+
+npm install react-router-dom
+
+
+
+npm install react-bootstrap
+npm install @mui/material @emotion/react @emotion/styled
+npm install styled-components
+
+
+
+npm install --save-dev webpack webpack-cli
+npm install @babel/core babel-loader @babel/preset-react --save-dev
+npm install core-js regenerator-runtime
+npm install @babel/preset-env --save-dev
+npm install style-loader css-loader --save-dev
+npm install --save-dev webpack-dev-server
+
+
+
+npm install --save-dev --save-exact prettier
+create .prettierrc and .prettierignore files
+prettier --check .
+set up editor
+npm install --save-dev eslint-config-prettier so eslint works well with prettier

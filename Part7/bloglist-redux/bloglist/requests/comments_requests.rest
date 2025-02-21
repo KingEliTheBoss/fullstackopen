@@ -1,0 +1,10 @@
+### Get all comments
+GET http://localhost:3003/api/blogs/67b7b624de4708ef4391bca9/comments
+
+### Create a new blog
+POST http://localhost:3003/api/blogs/67b7b624de4708ef4391bca9/comments
+Content-Type: application/json
+
+{
+    "content": "TKonoha"
+}

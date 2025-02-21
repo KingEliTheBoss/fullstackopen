@@ -1,0 +1,24 @@
+### Get all users
+GET http://localhost:3003/api/users
+
+### Create a new user
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+#{
+#    "username": "mluukkai",
+#    "password": "salainen",
+#    "name": "Matti Luukkainen"
+#}
+
+{
+    "username": "KingEliTheBoss",
+    "password": "a1s2d3q4w5e6z7x8c9+*?!",
+    "name": "Eli Sal"
+}
+
+#{
+#    "username": "ml",
+#    "password": "FSOpenUsers+",
+#    "name": "Matti Luukkainen"
+#}

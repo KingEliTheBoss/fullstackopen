@@ -47,8 +47,16 @@ style-loader css-loader are loaders to be able to transpile css files and code
 WEBPACK-DEV-SERVER to be able to run a webpack project without needing to bundle it every time
 
 PRETTIER library that formats code automatically
+GRAPHQL lets you obtain data from server more dinamically
+@APOLLO/SERVER server library which facilitates graphql connections in the backend
+UUID library that helps generate ids
+@APOLLO/CLIENT the connect to graphql server from the frontendg
 
-
+GRAPHQL-WS
+WS
+@GRAPHQL-TOOLS/SCHEMA
+GRAPHQL-SUBSCRIPTIONS
+//These 3 can be used for managing graphql subscriptions and web sockets
 
 
 
@@ -300,3 +308,16 @@ create .prettierrc and .prettierignore files
 prettier --check .
 set up editor
 npm install --save-dev eslint-config-prettier so eslint works well with prettier
+
+
+
+npm install graphql
+npm install @apollo/server
+npm install @apollo/client
+
+npm install uuid
+
+
+
+npm install graphql-ws ws @graphql-tools/schema
+npm install graphql-subscriptions

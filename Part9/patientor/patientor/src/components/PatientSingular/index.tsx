@@ -2,7 +2,7 @@ import { SyntheticEvent, useEffect, useState } from "react";
 import { useMatch } from "react-router-dom";
 import { Diagnosis, Patient, HealthCheckEntry, OccupationalHealthcareEntry, HospitalEntry } from "../../types";
 import patientService from "../../services/patients";
-import { Typography, TextField, Button, RadioGroup, FormControlLabel, Radio, Select, MenuItem, InputLabel } from "@mui/material";
+import { Typography, TextField, Button, RadioGroup, FormControlLabel, Radio, Select, MenuItem, InputLabel, SelectChangeEvent } from "@mui/material";
 import { HealthAndSafety, Favorite, Work, LocalHospital, Male, Female, RadioButtonUnchecked } from "@mui/icons-material";
 
 interface Props {
@@ -39,7 +39,7 @@ const PatientSingular = ({ diagnoses }: Props) => {
                 <div>ssn: {currentPatient.ssn}</div>
                 <div>occupation: {currentPatient.occupation}</div>
             </Typography>
-            <NewEntryForm patientId={match?.params.id} />
+            <NewEntryForm patientId={match?.params.id} currentPatient={currentPatient} setCurrentPatient={setCurrentPatient} />
             <Typography variant="h6">
                 <p>entries</p>
             </Typography>
@@ -62,19 +62,22 @@ const PatientSingular = ({ diagnoses }: Props) => {
 };
 
 interface EntryFormProps {
-    patientId: string,
+    patientId: string;
+    currentPatient: Patient | null;
+    setCurrentPatient: React.Dispatch<React.SetStateAction<Patient | null>>;
 }
 const newEntryFormStyles = {
     padding: "5px",
     border: "2px dotted black"
 };
-const NewEntryForm = ({ patientId }: EntryFormProps) => {
+const NewEntryForm = ({ patientId, setCurrentPatient }: EntryFormProps) => {
     const [errorCreationMessage, setErrorCreationMessage] = useState("");
+    const match = useMatch("/patients/:id");
 
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
     const [specialist, setSpecialist] = useState("");
-    const [diagnosisCodes, setDiagnosisCodes] = useState("");
+    const [diagnosisCodes, setDiagnosisCodes] = useState<string[]>([]);
     const [currentType, setCurrentType] = useState("");
 
     const [healthCheckRating, setHealthCheckRating] = useState("");
@@ -86,13 +89,13 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
     const [dischargeDate, setDischargeDate] = useState("");
     const [dischargeCriteria, setDischargeCriteria] = useState("");
 
-    const parseDiagnosisCodes = (object: unknown): Array<Diagnosis["code"]> => {
+    /*const parseDiagnosisCodes = (object: unknown): Array<Diagnosis["code"]> => {
         if (!object || typeof object !== "object" || !("diagnosisCodes" in object) || typeof object.diagnosisCodes !== "string") {
             return [] as Array<Diagnosis["code"]>;
         }
         const codesArray: Array<Diagnosis["code"]> = object.diagnosisCodes.split(", ");
         return (codesArray);
-    };
+    };*/
 
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
@@ -102,7 +105,7 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
             }
             if (currentType === "HealthCheck") {
                 if (description === "" || date === "" || specialist === ""
-                    || diagnosisCodes === "" || healthCheckRating === "") {
+                    || diagnosisCodes.length === 0 || healthCheckRating === "") {
                     throw new Error("Missing fields");
                 }
                 if (Number(healthCheckRating) < 0 || Number(healthCheckRating) > 3) {
@@ -112,12 +115,17 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
                     description,
                     date,
                     specialist,
-                    diagnosisCodes: parseDiagnosisCodes({ diagnosisCodes }),
+                    diagnosisCodes,
                     type: currentType,
                     healthCheckRating: Number(healthCheckRating)
                 }, patientId);
+                const fetchPatient = async () => {
+                    const foundPatient = await patientService.getOne(match?.params.id);
+                    setCurrentPatient(foundPatient);
+                };
+                fetchPatient();
             } else if (currentType === "OccupationalHealthcare") {
-                if (description === "" || date === "" || specialist === "" || diagnosisCodes === ""
+                if (description === "" || date === "" || specialist === "" || diagnosisCodes.length === 0
                     || employerName === "" || sickLeaveSDate === "" || sickLeaveEDate === "") {
                     throw new Error("Missing fields");
                 }
@@ -125,7 +133,7 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
                     description,
                     date,
                     specialist,
-                    diagnosisCodes: parseDiagnosisCodes({ diagnosisCodes }),
+                    diagnosisCodes,
                     type: currentType,
                     employerName,
                     sickLeave: {
@@ -133,8 +141,13 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
                         endDate: sickLeaveEDate
                     }
                 }, patientId);
+                const fetchPatient = async () => {
+                    const foundPatient = await patientService.getOne(match?.params.id);
+                    setCurrentPatient(foundPatient);
+                };
+                fetchPatient();
             } else if (currentType === "Hospital") {
-                if (description === "" || date === "" || specialist === "" || diagnosisCodes === ""
+                if (description === "" || date === "" || specialist === "" || diagnosisCodes.length === 0
                     || dischargeDate === "" || dischargeCriteria === "") {
                     throw new Error("Missing fields");
                 }
@@ -142,13 +155,18 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
                     description,
                     date,
                     specialist,
-                    diagnosisCodes: parseDiagnosisCodes({ diagnosisCodes }),
+                    diagnosisCodes,
                     type: currentType,
                     discharge: {
                         date: dischargeDate,
                         criteria: dischargeCriteria
                     }
                 }, patientId);
+                const fetchPatient = async () => {
+                    const foundPatient = await patientService.getOne(match?.params.id);
+                    setCurrentPatient(foundPatient);
+                };
+                fetchPatient();
             }
         } catch (e) {
             if (e instanceof Error) {
@@ -159,6 +177,30 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
             }
         }
     };
+
+    const handleSelectCodes = (event: SelectChangeEvent<typeof diagnosisCodes>) => {
+        event.preventDefault();
+        const { target: { value } } = event;
+        setDiagnosisCodes(typeof value === "string" ? value.split(",") : value);
+    };
+
+    const codes = [
+        "M24.2",
+        "M51.2",
+        "S03.5",
+        "J10.1",
+        "J06.9",
+        "Z57.1",
+        "N30.0",
+        "H54.7",
+        "J03.0",
+        "L60.1",
+        "Z74.3",
+        "L20",
+        "F43.2",
+        "S62.5",
+        "H35.29"
+    ];
 
     return (
         <div style={newEntryFormStyles}>
@@ -175,7 +217,16 @@ const NewEntryForm = ({ patientId }: EntryFormProps) => {
                 <div><TextField label="Description" defaultValue={description} onChange={({ target }) => setDescription(target.value)} /></div>
                 <div>Date<input type="date" onChange={({ target }) => setDate(target.value)} /></div>
                 <div><TextField label="Specialist" defaultValue={specialist} onChange={({ target }) => setSpecialist(target.value)} /></div>
-                <div><TextField label="Diagnosis Codes" defaultValue={diagnosisCodes} onChange={({ target }) => setDiagnosisCodes(target.value)} /></div>
+
+                <div>
+                    <InputLabel>Diagnosis Codes</InputLabel>
+                    <Select multiple value={diagnosisCodes} onChange={handleSelectCodes}>
+                        {codes.map(code => (
+                            <MenuItem key={code} value={code}>{code}</MenuItem>
+                        ))}
+                    </Select>
+                </div>
+
                 {currentType === "HealthCheck"
                     ? <div>
                         <div>

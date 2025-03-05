@@ -52,11 +52,22 @@ GRAPHQL lets you obtain data from server more dinamically
 UUID library that helps generate ids
 @APOLLO/CLIENT the connect to graphql server from the frontendg
 
-GRAPHQL-WS
+GRAPHQL-WS can be used in frontend too
 WS
 @GRAPHQL-TOOLS/SCHEMA
 GRAPHQL-SUBSCRIPTIONS
-//These 3 can be used for managing graphql subscriptions and web sockets
+//These 4 can be used for managing graphql subscriptions and web sockets
+
+TS-NODE TYPESCRIPT to be able to make an app with typescript
+@TYPES/ can be used to have the exact types for different projects
+TS_NODE-DEV to be able refresh server when files are saved automatically
+
+ZOD schema validator
+
+
+
+
+
 
 
 
@@ -321,3 +332,30 @@ npm install uuid
 
 npm install graphql-ws ws @graphql-tools/schema
 npm install graphql-subscriptions
+
+
+
+npm install --location=global ts-node typescript
+//location is set to gloabl so that it installs in the whole computer
+npm install --save-dev ts-node typescript
+//using it in regular project after using npm init
+
+
+npm install --save-dev @types/react
+npm install --save-dev @types/express
+npm install --save-dev @types/lodash
+npm install --save-dev @types/jest
+npm install --save-dev @types/mongoose
+npm install --save-dev @types/node
+etc.
+
+
+npm install --save-dev ts-node-dev
+
+npm install --save-dev eslint @eslint/js @types/eslint__js typescript typescript-eslint
+//eslint packages to work with typescript
+npm install --save-dev @stylistic/eslint-plugin
+
+
+
+npm install zod

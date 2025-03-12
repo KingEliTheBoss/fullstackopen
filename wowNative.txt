@@ -1,0 +1,51 @@
+Specific tools and proccesses for React Native
+THESE NPM/NPX INSTALLATIONS ARE VERSIONED TO WORK WITH THE FULLSTACKOPEN COURSE
+NEED TO USE NEWER VERSIONS FOR REAL APPS
+
+//Expo is a platform that eases the setup, development, building and deployment of React Native applications.
+npx create-expo-app name-of-project --template expo-template-blank@sdk-50
+npx expo install react-native-web@~0.19.6 react-dom@18.2.0 @expo/metro-runtime@~3.1.1
+
+//Para instalar emulador android seguir estos pasos
+1. Asegurarse de que chocolatey esté instalado con https://chocolatey.org/install
+2. Seguir los pasos de https://docs.expo.dev/workflow/android-studio-emulator/
+2.1 En powershell admin, asegurarse que microsoft-openjdk esté instalado:
+	choco install -y microsoft-openjdk17
+2.2 Descargar e instalar Android Studio https://developer.android.com/studio
+2.3 Crear variable ANDROID_HOME si no existe
+2.4 Editar variable Path si si fue editada ya
+3 En Android Studio, crear un nuevo emulador Android en device manager
+
+//Instalar ESLint para mejorar el desarrollo
+npm install --save-dev eslint @babel/eslint-parser eslint-plugin-react eslint-plugin-react-native
+
+//To inspect the React element tree, props and state install React DevTools
+npx react-devtools
+
+//To be able to navigate between different views we have to use the native version of react-router
+npm install react-router-native
+
+//Instalar formik para manejar los estados de un formulario en react de manera más sencilla
+npm install formik
+
+//Validation schema for formik
+npm install yup
+
+//To obtain metro builder default config and change it if needed
+npm install @expo/metro-config@<version>
+
+//For functionality similar to localStorage, use async storage
+//Make sure to use npx expo install so that it installs the right version for the expo sdk
+npx expo install @react-native-async-storage/async-storage
+
+//jest to be able to make tests
+npm install --save-dev jest jest-expo eslint-plugin-jest
+
+//testing libraries to make things easiers
+npm install --save-dev --legacy-peer-deps react-test-renderer@18.2.0 @testing-library/react-native @testing-library/jest-native
+
+//gives you ways to link to different web pages/apps
+npm install expo-linking
+
+//date-fns allows to format date strings
+npm install date-fns

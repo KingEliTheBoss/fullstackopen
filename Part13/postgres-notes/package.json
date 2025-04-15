@@ -1,0 +1,23 @@
+{
+  "name": "postgres-notes",
+  "version": "1.0.0",
+  "description": "Part 13 of FSO course, relational databases",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "migration:down": "node util/rollback.js"
+  },
+  "author": "Eli Sal",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.14.1",
+    "sequelize": "^6.37.7",
+    "umzug": "^3.8.2"
+  }
+}

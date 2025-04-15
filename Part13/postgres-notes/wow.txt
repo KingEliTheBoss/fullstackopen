@@ -1,0 +1,2 @@
+flyctl postgres connect -a postgres-elisal
+flyctl proxy 5432 -a postgres-elisal

@@ -64,6 +64,8 @@ TS_NODE-DEV to be able refresh server when files are saved automatically
 
 ZOD schema validator
 
+UMZUG perform database migrations
+
 
 
 
@@ -359,3 +361,7 @@ npm install --save-dev @stylistic/eslint-plugin
 
 
 npm install zod
+
+
+
+npm install umzug
